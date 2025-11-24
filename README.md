@@ -13,33 +13,33 @@ First, you'll have to configure the required environment variables in `.env.exam
 
 ## Create all relays
 ```bash
-$ python3 main.py --i $USER_ID create-relays
+$ python3 main.py -i $USER_ID create-relays
   Registering 500 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 
 ## Only create relays located in specific countries
 ```bash
-$ python3 main.py --i $USER_ID create-relays -f de,es
-  Registering 40 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+$ python3 main.py -i $USER_ID create-relays -f de,es
+  Registering 60 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 
 ## Create connections for a node
 ```bash
-$ python3 main.py --i $USER_ID create-connections $NODE_ID
+$ python3 main.py -i $USER_ID create-connections $NODE_ID
 21:49:41 Creating connections for node 'foo' ...
   Connecting 60 peers ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 
 ## Clean up all relays & connections
 ```bash
-$ python3 main.py --i $USER_ID clean
+$ python3 main.py -i $USER_ID clean
 Deleting 500 connections ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 Deleting 500 peers ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 
 ## Clean up relays (& connections) from specific countries
 ```bash
-$ python3 main.py --i $USER_ID clean -f de,es
+$ python3 main.py -i $USER_ID clean -f de,es
 Deleting 60 connections ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 Deleting 60 peers ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
