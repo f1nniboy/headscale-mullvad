@@ -1,0 +1,4 @@
+rich
+python-dotenv
+typer[all]
+requests

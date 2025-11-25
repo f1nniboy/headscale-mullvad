@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "headscale-mullvad"
+version = "0.1.0"
+dependencies = [
+    "rich",
+    "python-dotenv",
+    "typer[all]",
+    "requests",
+]
+requires-python = ">=3.7"
+
+[project.scripts]
+headscale-mullvad = "headscale_mullvad.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

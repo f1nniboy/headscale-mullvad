@@ -1,1 +1,4 @@
 .env
+result*
+.direnv
+**/__pycache__
