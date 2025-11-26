@@ -10,9 +10,14 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+
+      package = pkgs.callPackage ./package.nix { };
     in
     {
-      packages.${system}.default = pkgs.callPackage ./package.nix { };
+      packages.${system} = {
+        default = package;
+        headscale-mullvad = package;
+      };
 
       apps.${system}.default = {
         type = "app";

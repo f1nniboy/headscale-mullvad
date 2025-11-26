@@ -13,7 +13,7 @@ First, you'll have to configure the required environment variables in `.env.exam
 
 ## Nix
 ```bash
-$ nix run . -- [COMMAND]
+$ nix shell .#headscale-mullvad
 ```
 
 ## Python
@@ -28,14 +28,14 @@ This registers Mullvad relays as nodes in Headscale.
 
 ### Add all relays
 ```bash
-$ nix run . -- relay add --id $USER_ID
+$ headscale-mullvad relay add --id $USER_ID
   Registering 500 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 *You can also use `--name` to specify a user by name.*
 
 ### Add relays located in specific countries
 ```bash
-$ nix run . -- relay add --id $USER_ID --countries de,es
+$ headscale-mullvad relay add --id $USER_ID --countries de,es
 [00:00:00] INFO     Fetching Mullvad relays                                 
   Registering 10 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
@@ -44,7 +44,7 @@ $ nix run . -- relay add --id $USER_ID --countries de,es
 Once relays are added, you can grant specific nodes access to them and set up authentication with Mullvad automatically.
 
 ```bash
-$ nix run . -- node add --id $NODE_ID
+$ headscale-mullvad node add --id $NODE_ID
 [00:00:00] INFO     Adding node abc to Mullvad                 
 [00:00:00] INFO     Creating relay connections                                
   Creating 10 connections ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
@@ -55,7 +55,7 @@ $ nix run . -- node add --id $NODE_ID
 ### Relays
 View all registered Mullvad relays.
 ```bash
-$ nix run . -- relay list
+$ headscale-mullvad relay list
                    Mullvad relays
 ┏━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━┓
 ┃ ID        ┃ Name             ┃ Country ┃ City    ┃
@@ -68,7 +68,7 @@ $ nix run . -- relay list
 ### Nodes
 Check which nodes have access to the relays.
 ```bash
-$ nix run . -- node list
+$ headscale-mullvad node list
             Nodes
 ┏━━━━┳━━━━━━┳━━━━━━┳━━━━━━━━┓
 ┃ ID ┃ Name ┃ User ┃ Access ┃
@@ -82,7 +82,7 @@ $ nix run . -- node list
 ### Revoke access to relays for a node
 This will revoke access to all relays for a specific node. 
 ```bash
-$ nix run . -- node delete --id $NODE_ID
+$ headscale-mullvad node delete --id $NODE_ID
 [00:00:00] INFO     Deleting connections for node abc
   Deleting 10 connections ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
@@ -91,7 +91,7 @@ $ nix run . -- node delete --id $NODE_ID
 This will delete relays and any connections to them.
 
 ```bash
-$ nix run . -- relay delete --countries de,es
+$ headscale-mullvad relay delete --countries de,es
   Deleting 10 connections ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
   Deleting 10 relays ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```

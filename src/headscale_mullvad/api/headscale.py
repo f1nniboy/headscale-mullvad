@@ -44,7 +44,9 @@ class HeadscaleClient:
 
     def list_relays(self):
         all_relays = self.state().get("wireguardOnlyPeers", [])
-        return [r for r in all_relays if r.get("name", "").startswith(MULLVAD_NODE_PREFIX)]
+        return [
+            r for r in all_relays if r.get("name", "").startswith(MULLVAD_NODE_PREFIX)
+        ]
 
     def register_relay(self, relay_data):
         self.req("/api/v1/wireguard-only-peer/register", "POST", relay_data)

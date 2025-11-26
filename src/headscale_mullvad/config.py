@@ -1,8 +1,8 @@
 from os import environ
 
-from dotenv import load_dotenv
+from dotenv import find_dotenv, load_dotenv
 
-load_dotenv()
+load_dotenv(find_dotenv(usecwd=True))
 
 MAX_WORKERS = 50
 MULLVAD_NODE_PREFIX = "mv-"
