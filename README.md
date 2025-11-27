@@ -13,7 +13,7 @@ First, you'll have to configure the required environment variables in `.env.exam
 
 ## Nix
 ```bash
-$ nix shell .#headscale-mullvad
+$ nix shell .
 ```
 
 ## Python

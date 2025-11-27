@@ -14,10 +14,7 @@
       package = pkgs.callPackage ./package.nix { };
     in
     {
-      packages.${system} = {
-        default = package;
-        headscale-mullvad = package;
-      };
+      packages.${system}.default = package;
 
       apps.${system}.default = {
         type = "app";

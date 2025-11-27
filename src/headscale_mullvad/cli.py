@@ -147,6 +147,7 @@ def relay_add(
 
                 extra = {
                     "suggestExitNode": True,
+                    "exitNodeDNSResolvers": ["10.64.0.1"],
                     "location": {
                         "Country": country_data.get("name"),
                         "CountryCode": country_data.get("code"),
