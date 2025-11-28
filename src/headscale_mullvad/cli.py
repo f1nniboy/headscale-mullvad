@@ -204,7 +204,7 @@ def relay_delete(
         try:
             extra_config = json.loads(relay.get("extraConfig", "{}"))
             location = extra_config.get("location", {})
-            country_code = location.get("countryCode", "").lower()
+            country_code = location.get("CountryCode", "").lower()
         except (json.JSONDecodeError, AttributeError):
             country_code = None
 
